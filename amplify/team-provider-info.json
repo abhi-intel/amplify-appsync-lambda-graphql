@@ -14,6 +14,12 @@
     "categories": {
       "auth": {
         "amplifyappsynca6d9915f": {}
+      },
+      "function": {
+        "GraphQLResolverFunction": {
+          "deploymentBucketName": "amplify-amplifyappsync-dev-220332-deployment",
+          "s3Key": "amplify-builds/GraphQLResolverFunction-6e5767386e4d4e5a414f-build.zip"
+        }
       }
     }
   }

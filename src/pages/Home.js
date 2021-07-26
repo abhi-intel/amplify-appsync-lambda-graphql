@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
 import { Auth } from 'aws-amplify';
+import { API, graphqlOperation } from 'aws-amplify';
+import { echo } from '../graphql/queries';
 import logo from '../logo.svg';
 
 const Home = () => {
@@ -9,8 +11,17 @@ const Home = () => {
     });
   };
 
+  const getData = async () => {
+    const result = await API.graphql(
+      graphqlOperation(echo, { msg: 'planets' }),
+    );
+
+    console.log('AppSync API Data: ', JSON.stringify(result.data));
+  };
+
   useEffect(() => {
     getUserInfo();
+    getData();
 
     // return () => {
     //   cleanup
