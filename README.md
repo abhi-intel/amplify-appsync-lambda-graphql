@@ -1,9 +1,29 @@
-# Getting Started with Create React App
+# Getting Started with Create React App and AWS Amplify
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+After successfull authentication using cognito, the lambda function call swapi (star wars api) and return the list of people
+`api: https://swapi.dev/api/people`
+
+# AWS Amplify + Lambda + Cognito + AppSync + GraphQL
+
+1. amplify init
+2. amplify add function (Add node.js serverless lambda function - calls the api)
+3. amplify add auth (Choose Cognito Userpool)
+4. amplify add api (Choose Graphql - Includes query to invoke lambda function)
+5. amplify push
+
+## GraphQL Schema
+
+Refer `schema.graphql` in src folder for graphql schema
+
+## To mock
+
+After step 4, run: `amplify mock` to test the graphql api locally
+
+[AWS CLI Reference](https://docs.amplify.aws/cli)
 
 ## Available Scripts
 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 In the project directory, you can run:
 
 ### `yarn start`
