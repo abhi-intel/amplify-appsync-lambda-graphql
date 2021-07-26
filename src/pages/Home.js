@@ -1,10 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Auth } from 'aws-amplify';
 import { API, graphqlOperation } from 'aws-amplify';
 import { echo } from '../graphql/queries';
-import logo from '../logo.svg';
 
 const Home = () => {
+  const [query, setQuery] = useState('');
+  const [result, setResult] = useState('');
+
+  const onTextChange = (data) => {
+    setQuery(data);
+  };
+
   const getUserInfo = async () => {
     await Auth.currentUserInfo().then((user) => {
       console.log('User Info: ', user);
@@ -12,37 +18,41 @@ const Home = () => {
   };
 
   const getData = async () => {
-    const result = await API.graphql(
-      graphqlOperation(echo, { msg: 'planets' }),
-    );
-
+    const result = await API.graphql(graphqlOperation(echo, { msg: query }));
     console.log('AppSync API Data: ', JSON.stringify(result.data));
+    setResult(result.data.echo);
   };
 
   useEffect(() => {
     getUserInfo();
-    getData();
-
-    // return () => {
-    //   cleanup
-    // }
   }, []);
 
   return (
     <div className="Home">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://swapi.dev/api/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Search results from Star Wars API
         </a>
+        <p>
+          Search options: people | planets | films | species | vehicles |
+          starships
+        </p>
+        <div className="search-component">
+          <input onChange={(e) => onTextChange(e.target.value)} value={query} />
+          <button type="button" onClick={getData}>
+            Search
+          </button>
+        </div>
+
+        <br />
+        <h3>API Search Result: </h3>
+        <div style={{ color: '#da70d6' }}>{result}</div>
+        <br />
       </header>
     </div>
   );

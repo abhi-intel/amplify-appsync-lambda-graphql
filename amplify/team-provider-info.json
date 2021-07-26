@@ -18,7 +18,7 @@
       "function": {
         "GraphQLResolverFunction": {
           "deploymentBucketName": "amplify-amplifyappsync-dev-220332-deployment",
-          "s3Key": "amplify-builds/GraphQLResolverFunction-6e5767386e4d4e5a414f-build.zip"
+          "s3Key": "amplify-builds/GraphQLResolverFunction-35523830573664486d6c-build.zip"
         }
       }
     }
