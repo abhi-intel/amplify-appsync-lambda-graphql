@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "GraphQLResolverFunction",
+            "amplifyappsync",
             {
               "Fn::Join": [
                 "",
                 [
-                  "GraphQLResolverFunction",
+                  "amplifyappsync",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "amplifyappsyncLambdaRole5284cc1f",
+            "amplifyappsyncLambdaRole117d8995",
             {
               "Fn::Join": [
                 "",
                 [
-                  "amplifyappsyncLambdaRole5284cc1f",
+                  "amplifyappsyncLambdaRole117d8995",
                   "-",
                   {
                     "Ref": "env"

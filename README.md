@@ -13,13 +13,22 @@ After successfull authentication using cognito, the lambda function call swapi (
 
 ## GraphQL Schema
 
-Refer `schema.graphql` in src folder for graphql schema
+Refer `schema.graphql` in src/reference folder for graphql schema
 
 ## To mock
 
 After step 4, run: `amplify mock` to test the graphql api locally
 
 [AWS CLI Reference](https://docs.amplify.aws/cli)
+
+### Lambda Function
+
+Refer lambda.js in src/reference folder for node.js lambda function
+
+Note:
+In order to use axios within Lambda function.
+Navigate to amplify/backend/function/<FUNCTION_NAME>/src and install axios:
+`yarn add axios or npm install axios`
 
 ## Available Scripts
 

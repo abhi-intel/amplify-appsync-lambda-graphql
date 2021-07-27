@@ -1,4 +1,3 @@
-// require axios
 const axios = require('axios');
 
 exports.handler = async function (event, context) {
@@ -10,7 +9,7 @@ exports.handler = async function (event, context) {
     }
   };
 
-  const response = await getData(event.arguments.msg);
+  const response = await getData(event.arguments.input);
 
   const result = [];
 
@@ -25,12 +24,30 @@ exports.handler = async function (event, context) {
   }
 
   if (result.length > 0) {
-    return `Search results for ${event.arguments.msg} [${result.length}]: ${result}`;
+    return `Search results for ${event.arguments.input} [${result.length}]: ${result}`;
   } else {
-    return `No search results for ${event.arguments.msg}. Try the search options provided above.`;
+    return `No search results for ${event.arguments.input}. Try the search options provided above.`;
   }
 };
 
+// ECHO Function
+
 // exports.handler = async function (event, context) {
 //   return 'Lambda Response: ' + event.arguments.msg;
+// };
+
+//DEFAULT
+
+// exports.handler = async (event) => {
+//     // TODO implement
+//     const response = {
+//         statusCode: 200,
+//     //  Uncomment below to enable CORS requests
+//     //  headers: {
+//     //      "Access-Control-Allow-Origin": "*",
+//     //      "Access-Control-Allow-Headers": "*"
+//     //  },
+//         body: JSON.stringify('Hello from Lambda!'),
+//     };
+//     return response;
 // };

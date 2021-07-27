@@ -154,12 +154,12 @@ export type DeleteTodoMutation = {
   } | null,
 };
 
-export type EchoQueryVariables = {
-  msg?: string | null,
+export type ResponseQueryVariables = {
+  input?: string | null,
 };
 
-export type EchoQuery = {
-  echo?: string | null,
+export type ResponseQuery = {
+  response?: string | null,
 };
 
 export type GetTodoQueryVariables = {

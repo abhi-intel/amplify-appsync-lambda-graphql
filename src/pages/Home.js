@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Auth } from 'aws-amplify';
 import { API, graphqlOperation } from 'aws-amplify';
-import { echo } from '../graphql/queries';
+import { response } from '../graphql/queries';
 
 const Home = () => {
   const [query, setQuery] = useState('');
@@ -18,9 +18,11 @@ const Home = () => {
   };
 
   const getData = async () => {
-    const result = await API.graphql(graphqlOperation(echo, { msg: query }));
+    const result = await API.graphql(
+      graphqlOperation(response, { input: query }),
+    );
     console.log('AppSync API Data: ', JSON.stringify(result.data));
-    setResult(result.data.echo);
+    setResult(result.data.response);
   };
 
   useEffect(() => {

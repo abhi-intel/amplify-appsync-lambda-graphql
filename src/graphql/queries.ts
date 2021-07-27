@@ -2,9 +2,9 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const echo = /* GraphQL */ `
-  query Echo($msg: String) {
-    echo(msg: $msg)
+export const response = /* GraphQL */ `
+  query Response($input: String) {
+    response(input: $input)
   }
 `;
 export const getTodo = /* GraphQL */ `

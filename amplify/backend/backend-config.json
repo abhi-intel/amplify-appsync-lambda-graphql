@@ -1,17 +1,17 @@
 {
+  "function": {
+    "amplifyappsync": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
   "auth": {
-    "amplifyappsynca6d9915f": {
+    "amplifyappsync5677c90c": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "customAuth": false
-    }
-  },
-  "function": {
-    "GraphQLResolverFunction": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
     }
   },
   "api": {
@@ -23,18 +23,10 @@
           "defaultAuthentication": {
             "authenticationType": "AMAZON_COGNITO_USER_POOLS",
             "userPoolConfig": {
-              "userPoolId": "authamplifyappsynca6d9915f"
+              "userPoolId": "authamplifyappsync5677c90c"
             }
           },
-          "additionalAuthenticationProviders": [
-            {
-              "authenticationType": "API_KEY",
-              "apiKeyConfig": {
-                "apiKeyExpirationDays": 30,
-                "description": "api-key"
-              }
-            }
-          ]
+          "additionalAuthenticationProviders": []
         }
       }
     }

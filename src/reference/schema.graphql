@@ -5,5 +5,5 @@ type Todo @model {
 }
 
 type Query {
-  echo(msg: String): String @function(name: "GraphQLResolverFunction-${env}")
+  response(input: String): String @function(name: "amplifyappsync-${env}")
 }
